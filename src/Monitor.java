@@ -1,23 +1,23 @@
-import java.util.Date;
-
 public class Monitor {
 
-    private final SessaoDeEnsino prototipoPadrao;
+    private final int monitorId;
 
     public Monitor(int monitorId) {
-        this.prototipoPadrao = new SessaoDeEnsino(
-                999, // ID do Template
-                "Minicurso de Programação Orientada a Objetos (POO)",
-                "Arquitetura de Software",
-                "20:00",
-                "Publica"
-        );
-        System.out.println("\n[Monitor " + monitorId + "] PROTÓTIPO BASE (Minicurso POO) CRIADO: " + prototipoPadrao.getTitulo());
+        this.monitorId = monitorId;
     }
 
-    public SessaoDeEnsino criarSessao(Date dataAgendada) {
-        SessaoDeEnsino novaSessao = prototipoPadrao.clonar();
-        novaSessao.setData(dataAgendada);
-        return novaSessao;
+    public void disponibilizarMaterialDeEstudo(int id, String titulo, String materia, GeradorDeArquivo formatoInicial) {
+        System.out.println("\n[Monitor " + monitorId + "] Preparando Material de Estudo...");
+
+        MaterialDidatico material = new MaterialDidatico(id, titulo, materia, formatoInicial);
+
+        material.gerar();
+
+        System.out.println("\n--- Trocando o formato em tempo de execucao (Bridge em Acao)... ---");
+
+        GeradorDeArquivo novoFormato = (formatoInicial instanceof GeradorPDF) ? new GeradorTXT() : new GeradorPDF();
+
+        material.setGerador(novoFormato);
+        material.gerar();
     }
 }
