@@ -1,34 +1,26 @@
 public class Aplicacao {
 
-    static void main() {
+    public static void main(String[] args) {
         System.out.println("==============================================");
-        System.out.println("--- DEMONSTRACAO DO BRIDGE (GOF) ---");
-        System.out.println(" (Foco: Material Didatico e Formatos de Arquivo)");
+        System.out.println("--- DEMONSTRACAO DO COMMAND (GOF) ---");
         System.out.println("==============================================");
 
-        Monitor monitor = new Monitor(42);
+        ServicoAluno servico = new ServicoAluno();
 
-        System.out.println("\n****** CENARIO 1: Conceitos de Prototype (TXT/PDF) ******");
-        GeradorDeArquivo txtImplementor = new GeradorTXT();
-        monitor.disponibilizarMaterialDeEstudo(
-                101,
-                "Conceitos de Padroes Criacionais",
-                "Arquitetura de Software",
-                txtImplementor
-        );
+        PainelAluno painel = new PainelAluno();
 
-        System.out.println("\n------------------------------------------------");
+        Aluno aluno = new Aluno(1001);
 
-        System.out.println("\n****** CENARIO 2: Guia de UML (PDF/TXT) ******");
-        GeradorDeArquivo pdfImplementor = new GeradorPDF();
-        monitor.disponibilizarMaterialDeEstudo(
-                202,
-                "Guia Rapido de Diagramas UML",
-                "Analise e Projeto",
-                pdfImplementor
-        );
+        System.out.println("\n--- ALUNO PARAMETRIZANDO ACOES ---");
 
-        System.out.println("\n==============================================");
-        System.out.println("FIM: A lógica do Material (Conteudo) está desacoplada do Gerador de Arquivo (Formato).");
+        aluno.buscarMonitor(painel, servico, "Java");
+        aluno.acessarMateriais(painel, servico, 45);
+        aluno.buscarMonitor(painel, servico, "Proxy/Bridge");
+
+        // Invoker executa a fila de comandos.
+        painel.executarAcoes();
+
+        System.out.println("\n--- FIM ---");
+        System.out.println("O Invoker executou acoes variadas de forma desacoplada do Aluno e do ServicoAluno.");
     }
 }
