@@ -1,0 +1,11 @@
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/obj/Debug/net8.0/SeiPossoEnsinar.GeneratedMSBuildEditorConfig.editorconfig
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/obj/Debug/net8.0/SeiPossoEnsinar.AssemblyInfoInputs.cache
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/obj/Debug/net8.0/SeiPossoEnsinar.AssemblyInfo.cs
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/obj/Debug/net8.0/SeiPossoEnsinar.csproj.CoreCompileInputs.cache
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/bin/Debug/net8.0/SeiPossoEnsinar.deps.json
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/bin/Debug/net8.0/SeiPossoEnsinar.dll
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/bin/Debug/net8.0/SeiPossoEnsinar.pdb
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/obj/Debug/net8.0/SeiPossoEnsinar.dll
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/obj/Debug/net8.0/refint/SeiPossoEnsinar.dll
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/obj/Debug/net8.0/SeiPossoEnsinar.pdb
+/home/atyrson/teste_app_arq3/SeiPossoEnsinar/SeiPossoEnsinar/obj/Debug/net8.0/ref/SeiPossoEnsinar.dll
