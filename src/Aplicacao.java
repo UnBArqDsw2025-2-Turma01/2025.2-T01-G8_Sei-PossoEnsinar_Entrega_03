@@ -1,26 +1,38 @@
+import java.io.File;
+import java.util.Date;
+
 public class Aplicacao {
 
     public static void main(String[] args) {
         System.out.println("==============================================");
-        System.out.println("--- DEMONSTRACAO DO COMMAND (GOF) ---");
+        System.out.println("--- DEMONSTRACAO DO PROXY (GOF) ---");
         System.out.println("==============================================");
-
-        ServicoAluno servico = new ServicoAluno();
-
-        PainelAluno painel = new PainelAluno();
 
         Aluno aluno = new Aluno(1001);
 
-        System.out.println("\n--- ALUNO PARAMETRIZANDO ACOES ---");
+        File arquivo = new File("GoF_Estruturais.pdf");
+        Date data = new Date();
 
-        aluno.buscarMonitor(painel, servico, "Java");
-        aluno.acessarMateriais(painel, servico, 45);
-        aluno.buscarMonitor(painel, servico, "Proxy/Bridge");
+        System.out.println("\n****** CENARIO 1: Acesso Negado (Sessao PENDENTE) ******");
 
-        // Invoker executa a fila de comandos.
-        painel.executarAcoes();
+        ProxyMaterial proxy1 = new ProxyMaterial(
+                1, "Padrões Estruturais", "Arquitetura", arquivo, data, false
+        );
 
-        System.out.println("\n--- FIM ---");
-        System.out.println("O Invoker executou acoes variadas de forma desacoplada do Aluno e do ServicoAluno.");
+        aluno.acessarMateriais(proxy1);
+
+        System.out.println("--- Verificacao ---");
+        System.out.println("O RealSubject (Material Real) foi carregado? " + (proxy1.realMaterial != null));
+
+        System.out.println("\n****** CENARIO 2: Acesso Liberado e Cache ******");
+
+        proxy1.setPermissao(true);
+
+        aluno.acessarMateriais(proxy1);
+
+        aluno.acessarMateriais(proxy1);
+
+        System.out.println("\n--- FIM DA DEMONSTRACAO ---");
+        System.out.println("O Proxy 1 controlou o acesso e evitou carregar o recurso pesado ate ser estritamente necessario.");
     }
 }
