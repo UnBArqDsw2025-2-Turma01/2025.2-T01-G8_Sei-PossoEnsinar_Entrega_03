@@ -1,5 +1,5 @@
-
 import { Component } from "./component.abstract";
+
 
 export class Aluno extends Component {
   constructor(mediator: any, private nome: string) {
